@@ -22,4 +22,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 kubectl apply -n argocd -f application.yaml
 ```
 
+Wait for the ArgoCD to complete the deployment, then execute
+```bash
+kubectl port-forward svc/redux-punch 3000:3000 -n redux-punch
+```
+
+You can now access the application on http://localhost:3000
+
 Note that whenever this repository is modified to update the new version of redux-punch, auto deployment happens.
