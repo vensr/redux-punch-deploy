@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redux-punch
+spec:
+  selector:
+    matchLabels:
+      app: redux-punch
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: redux-punch
+    spec:
+      containers:
+      - name: redux-punch
+        image: venkatesh5/redux-punch:latest
+        ports:
+        - containerPort: 3000
